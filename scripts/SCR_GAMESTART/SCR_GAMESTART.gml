@@ -28,7 +28,7 @@ function SCR_GAMESTART()
 	    }
 	} */
 	
-	global.debug = false
+	global.debug = true
 	global.hp = 20
 	global.maxhp = 20
 	global.en = 20
