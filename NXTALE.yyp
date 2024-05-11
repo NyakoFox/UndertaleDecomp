@@ -104,6 +104,7 @@
     {"$GMFolder":"","%Name":"Event","folderPath":"folders/Objects/Event.yy","name":"Event","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Faces","folderPath":"folders/Objects/Faces.yy","name":"Faces","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Gaster","folderPath":"folders/Objects/Gaster.yy","name":"Gaster","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"New","folderPath":"folders/Objects/New.yy","name":"New","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Menu","folderPath":"folders/Objects/Menu.yy","name":"Menu","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Music","folderPath":"folders/Objects/Music.yy","name":"Music","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Fade","folderPath":"folders/Objects/Music/Fade.yy","name":"Fade","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -580,6 +581,7 @@
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"8bitoperator_jve.ttf","CopyToMask":-1,"filePath":"datafiles","name":"8bitoperator_jve.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"credits.txt","CopyToMask":-1,"filePath":"datafiles","name":"credits.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
@@ -1828,6 +1830,7 @@
     {"id":{"name":"obj_rollsnow","path":"objects/obj_rollsnow/obj_rollsnow.yy",},},
     {"id":{"name":"obj_rollsnowgen","path":"objects/obj_rollsnowgen/obj_rollsnowgen.yy",},},
     {"id":{"name":"obj_roomofdog","path":"objects/obj_roomofdog/obj_roomofdog.yy",},},
+    {"id":{"name":"obj_roomselector","path":"objects/obj_roomselector/obj_roomselector.yy",},},
     {"id":{"name":"obj_ropebul","path":"objects/obj_ropebul/obj_ropebul.yy",},},
     {"id":{"name":"obj_ropebulgen","path":"objects/obj_ropebulgen/obj_ropebulgen.yy",},},
     {"id":{"name":"obj_rotategen","path":"objects/obj_rotategen/obj_rotategen.yy",},},
