@@ -1,4 +1,8 @@
 draw_sprite(sprite_index, 0, x, y)
+draw_set_font(fnt_maintext)
+draw_set_halign(fa_center)
+draw_text(160, 150, "if it was good")
+draw_set_halign(fa_left)
 if (d == 1)
 {
     draw_set_color(c_gray)

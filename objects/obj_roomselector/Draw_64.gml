@@ -1,3 +1,8 @@
+if (!global.debug)
+{
+	exit;
+}
+
 if selector_active
 {
     if sprite_exists(ss)
