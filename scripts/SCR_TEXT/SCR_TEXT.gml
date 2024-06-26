@@ -1172,21 +1172,16 @@ function SCR_TEXT(_dialog_id)
 	                noroom = -1
 	                doak = 1
 	                scr_itemget(Items.Null)
-	                for (i = 0; i < InventorySize; i += 1)
-	                {
-	                    if (global.item[i] == Items.AnnoyingDog)
-	                        noroom = 2
-	                }
 	            }
 	            if (noroom == false)
 	            {
+					snd_play(snd_item)
+					with (obj_rarependant) image_index = 1;
 	                global.msg[0] = scr_gettext("SCR_TEXT_1221")
 	                FL_GotArtifact = 1
 	            }
 	            if (noroom == 1)
 	                global.msg[0] = scr_gettext("SCR_TEXT_1224")
-	            if (noroom == 2)
-	                global.msg[0] = scr_gettext("SCR_TEXT_1225")
 	        }
 	        if (global.choice == 1)
 	            global.msg[0] = scr_gettext("SCR_TEXT_1229")

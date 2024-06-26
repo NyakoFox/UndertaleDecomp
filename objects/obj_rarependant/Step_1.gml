@@ -1,4 +1,7 @@
 scr_depth(0, 0, 0, 0, 0)
+
+exit;
+
 if (FL_GotArtifact == 0)
 {
     hasdog = false

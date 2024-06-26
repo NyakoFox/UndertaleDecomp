@@ -805,7 +805,7 @@
   "SCR_TEXT_1198": "* (Will you take it?)& &         Take it     Leave it  \\C ",
   "SCR_TEXT_1199": " ",
   "SCR_TEXT_1202": "* (The artifact is gone.)/%%",
-  "SCR_TEXT_1221": "* (This will never happen.)/%%",
+  "SCR_TEXT_1221": "* (You pick up the artifact.)/%%",
   "SCR_TEXT_1224": "* (You're carrying too much.)/%%",
   "SCR_TEXT_1225": "* (You're carrying too many&  dogs.)/%%",
   "SCR_TEXT_1229": " %%",
