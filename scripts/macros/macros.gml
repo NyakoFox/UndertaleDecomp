@@ -81,9 +81,7 @@ enum OSFlavors
 #macro FL_TypeHeartTransition global.flag[16]
 #macro FL_MenuDisabled global.flag[17]
 #macro FL_UndyneZoomCutscene global.flag[18]
-
-#macro FL_SansRematch global.flag[19]
-
+// 19 Unused
 #macro FL_AnimationIndex global.flag[20]
 #macro FL_CookedNoodles global.flag[21]
 #macro FL_NameColor global.flag[22]
