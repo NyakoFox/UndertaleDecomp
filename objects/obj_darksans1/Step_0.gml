@@ -19,21 +19,53 @@ if (conversation == 0)
         global.msg[0] = scr_gettext("obj_darksans1_345")
         global.msg[1] = scr_gettext("obj_darksans1_346")
         global.msg[2] = scr_gettext("obj_darksans1_347")
-        ossafe_ini_open("undertale.ini")
-        M1 = ini_read_real("Sans", "M1", 0)
-        ini_write_real("Sans", "M1", (M1 + 1))
-        ossafe_ini_close()
-        ossafe_savedata_save()
-        if (M1 > 0)
-        {
-            global.msg[0] = scr_gettext("obj_darksans1_354")
-            global.msg[1] = scr_gettext("obj_darksans1_355")
-            global.msg[2] = scr_gettext("obj_darksans1_356")
-        }
         instance_create(0, 0, obj_dialoguer)
     }
 }
+
 if (conversation == 1 && instance_exists(OBJ_WRITER) == false)
+{
+    alarm[9] = 40
+    conversation = 2
+    caster_free(all)
+    snd_play(snd_break2)
+}
+
+if (conversation == 2)
+    global.interact = 1
+if (conversation == 3 && instance_exists(OBJ_WRITER) == false)
+{
+    global.interact = 1
+    myinteract = 3
+    global.seriousbattle = 1
+    global.battlegroup = BattleGroup.Sans
+    FL_AreaKillsPointer = KillsPointer_Invalid
+    global.mercy = 1
+    instance_create(0, 0, obj_battler)
+    conversation = 4
+}
+
+if (conversation == 4 && !instance_exists(obj_battler))
+{
+	global.faceemotion = 0
+	global.facechoice = 3
+	global.typer = 17
+	obj_mainchara.visible = true
+	sprite_index = spr_sans_r
+	image_index = 0
+	obj_mainchara.facing = Direction.Left
+	global.facing = Direction.Left
+
+	global.interact = 1
+
+    global.msg[0] = "* nah^1, just messing&  with ya./"
+    global.msg[1] = "* i remember you're&  pacifists./%%"
+    instance_create(0, 0, obj_dialoguer)
+
+	conversation = 6
+}
+
+/*if (conversation == 1 && instance_exists(OBJ_WRITER) == false)
 {
     global.interact = 1
     obj_mainchara.sprite_index = spr_maincharad
@@ -48,9 +80,10 @@ if (sprite_index == spr_sans_r_darkhand && conversation == 4 && image_index == 2
     alarm[4] = 180
     image_speed = 0
     conversation = 5
-}
+}*/
 if (conversation == 6 && instance_exists(OBJ_WRITER) == false)
 {
+	global.interact = 1
     obj_mainchara.visible = false
     mainact = instance_create(obj_mainchara.x, obj_mainchara.y, obj_mainchara_actor)
     mainact.hspeed = 4
@@ -90,6 +123,7 @@ if (conversation == 9)
         obj_mainchara_actor.y = obj_convenientlamp.y
         obj_mainchara.hspeed = 1
         obj_mainchara_actor.hspeed = 1
+		obj_mainchara.y += 60
         hh = instance_create(0, 0, obj_musfadeout)
         hh.fadespeed = 0.01
         conversation = 10
@@ -105,7 +139,6 @@ if (conversation == 10)
         obj_mainchara_actor.image_index = 0
         obj_mainchara.x = obj_convenientlamp.x
         obj_mainchara_actor.x = obj_convenientlamp.x
-        obj_mainchara.y += 60
         pap = instance_create(room_width, (y - 12), obj_papyrus_actor_mad)
         pap.sprite_index = spr_papyrus_l_mad
         pap.direction = 180

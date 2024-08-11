@@ -316,13 +316,15 @@ function SCR_TEXT(_dialog_id)
 	            global.msg[0] = scr_gettext("SCR_TEXT_282")
 	        break
 	    case 200:
-	        global.msg[0] = scr_gettext("SCR_TEXT_291")
-	        global.msg[1] = scr_gettext("SCR_TEXT_292")
-	        global.msg[2] = scr_gettext("SCR_TEXT_293")
-	        global.msg[3] = scr_gettext("SCR_TEXT_294")
-	        global.msg[4] = scr_gettext("SCR_TEXT_295")
-	        global.msg[5] = scr_gettext("SCR_TEXT_296")
-	        global.msg[6] = scr_gettext("SCR_TEXT_297")
+	        global.msg[0] = scr_gettext("SCR_TEXT_FLOWEY1")
+	        global.msg[1] = scr_gettext("SCR_TEXT_FLOWEY2")
+	        global.msg[2] = scr_gettext("SCR_TEXT_291")
+	        global.msg[3] = scr_gettext("SCR_TEXT_292")
+	        global.msg[4] = scr_gettext("SCR_TEXT_293")
+	        global.msg[5] = scr_gettext("SCR_TEXT_294")
+	        global.msg[6] = scr_gettext("SCR_TEXT_295")
+	        global.msg[7] = scr_gettext("SCR_TEXT_296")
+	        global.msg[8] = scr_gettext("SCR_TEXT_297")
 	        break
 	    case 201:
 	        global.msg[0] = scr_gettext("SCR_TEXT_301")

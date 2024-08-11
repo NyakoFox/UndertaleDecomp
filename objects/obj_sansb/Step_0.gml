@@ -536,7 +536,9 @@ if (con == 6)
 }
 if (con == 8)
 {
-    global.faceemotion = 5
+	snd_play(snd_noise)
+	obj_sansb_body.do_room_goto = true;
+    /*global.faceemotion = 5
     FL_FightingSans = true
     obj_heart.visible = true
     with (blk)
@@ -552,7 +554,7 @@ if (con == 8)
     {
         con = 11
         alarm[4] = -1
-    }
+    }*/
 }
 if (con == 10)
 {
