@@ -72,11 +72,10 @@ if (conversation == 6 && instance_exists(OBJ_WRITER) && OBJ_WRITER.stringno == 1
 	{
 		sprite_index = spr_sans_r_thumbsup
 		snd_play(snd_whip_hard)
+	    rshot = caster_load("music/rimshot.ogg")
+	    global.currentsong = caster_load("music/muscle.ogg")
+	    global.currentsong2 = caster_load("music/papyrus.ogg")
 	}
-
-    rshot = caster_load("music/rimshot.ogg")
-    global.currentsong = caster_load("music/muscle.ogg")
-    global.currentsong2 = caster_load("music/papyrus.ogg")
 }
 
 /*if (conversation == 1 && instance_exists(OBJ_WRITER) == false)
@@ -173,48 +172,146 @@ if (conversation == 11)
         global.msg[0] = scr_gettext("obj_darksans1_457")
         scr_papface(1, 1)
         global.msg[2] = scr_gettext("obj_darksans1_459")
-        global.msg[3] = scr_gettext("obj_darksans1_460")
-        global.msg[4] = scr_gettext("obj_darksans1_461")
-        global.msg[5] = scr_gettext("obj_darksans1_462")
-        global.msg[6] = scr_gettext("obj_darksans1_463")
-        scr_sansface(7, 0)
-        global.msg[8] = scr_gettext("obj_darksans1_465")
         instance_create(0, 0, obj_dialoguer)
         conversation = 12
     }
 }
 if (conversation == 12 && instance_exists(OBJ_WRITER) == false)
 {
-    obj_papyrus_actor_mad.fun = true
-    obj_papyrus_actor_mad.sprite_index = spr_papyrus_mad1
-    obj_papyrus_actor_mad.image_speed = 0.2
-    conversation = 13
-    global.typer = 18
-    global.faceemotion = 1
-    global.facechoice = 4
-    global.msg[0] = scr_gettext("obj_darksans1_480")
-    global.msg[1] = scr_gettext("obj_darksans1_481")
-    global.msg[2] = scr_gettext("obj_darksans1_482")
-    global.msg[3] = scr_gettext("obj_darksans1_483")
-    global.msg[4] = scr_gettext("obj_darksans1_484")
-    instance_create(0, 0, obj_dialoguer)
+	if (obj_papyrus_actor_mad.y > obj_mainchara_actor.y - 10)
+	{
+		obj_papyrus_actor_mad.y -= 10
+		obj_papyrus_actor_mad.sprite_index = spr_papyrus_u
+		obj_papyrus_actor_mad.image_speed = 1
+	}
+	else
+	{
+		obj_papyrus_actor_mad.y = obj_mainchara_actor.y - 10
+		if (obj_papyrus_actor_mad.x > obj_mainchara_actor.x)
+		{
+			obj_papyrus_actor_mad.x -= 10
+			obj_papyrus_actor_mad.sprite_index = spr_papyrus_l_mad
+			obj_papyrus_actor_mad.image_speed = 1
+		}
+		else
+		{
+			obj_papyrus_actor_mad.x = obj_mainchara_actor.x
+			obj_papyrus_actor_mad.image_speed = 0
+			snd_play(snd_impact);
+			conversation = 13
+		}
+	}
 }
 if (conversation == 13 && instance_exists(OBJ_WRITER) == false)
 {
     obj_papyrus_actor_mad.fun = true
-    obj_papyrus_actor_mad.sprite_index = spr_papyrus_cape
+    obj_papyrus_actor_mad.sprite_index = spr_papyrus_mad2
     obj_papyrus_actor_mad.image_speed = 0.25
-    conversation = 14
-    global.faceemotion = 0
-    global.facechoice = 4
-    global.msg[0] = scr_gettext("obj_darksans1_496")
-    global.msg[1] = scr_gettext("obj_darksans1_497")
-    global.msg[2] = scr_gettext("obj_darksans1_498")
-    global.msg[3] = scr_gettext("obj_darksans1_499")
-    global.msg[4] = scr_gettext("obj_darksans1_500")
-    global.msg[5] = scr_gettext("obj_darksans1_501")
-    instance_create(0, 0, obj_dialoguer)
+    conversation = 13.5
+
+	explosion = scr_marker(obj_mainchara_actor.x - 20, obj_mainchara_actor.y - 20, spr_realisticexplosion)
+	explosion.image_speed = 1
+	alarm[9] = 15
 }
+
+if (conversation == 14.5)
+{
+	instance_destroy(explosion)
+	instance_destroy(obj_convenientlamp)
+	conversation = 15.5
+	alarm[9] = 10
+}
+
+if (conversation == 16.5)
+{
+	snd_play(snd_grab)
+	obj_papyrus_actor_mad.y += 2
+	obj_mainchara_actor.visible = false
+	obj_mainchara.visible = false
+	obj_papyrus_actor_mad.fun = true
+	obj_papyrus_actor_mad.sprite_index = spr_papyrus_grab
+	obj_papyrus_actor_mad.image_speed = 0
+	conversation = 17.5
+	alarm[9] = 20
+}
+
+if (conversation == 18.5)
+{
+    conversation = 19.5
+    global.faceemotion = 1
+    global.facechoice = 4
+    global.typer = 18
+    global.msg[0] = "SEE YOU IN HELL^1,&BITCH./"
+	global.msg[1] = "NYEHEHEHEHEHEHEHE&HEHEHEHEHE!!!/%%"
+	instance_create(0, 0, obj_dialoguer)
+}
+
+if (conversation == 19.5 && instance_exists(OBJ_WRITER) == false)
+{
+	snd_play(snd_spearrise)
+	obj_papyrus_actor_mad.sprite_index = spr_papyrus_throw
+	obj_papyrus_actor_mad.x += 16
+	obj_papyrus_actor_mad.y -= 4
+	obj_mainchara_actor.visible = true
+	obj_mainchara_actor.fun = true
+	obj_mainchara_actor.sprite_index = spr_maincharad_c
+	spinactor = true
+	obj_mainchara_actor.vspeed = -10
+	conversation = 20.5
+	alarm[9] = 20
+}
+
+var xx = view_xview_get(view_current)
+var yy = view_yview_get(view_current)
+
+if (conversation == 21.5)
+{
+	lines = true
+	conversation = 22.5
+	cover = scr_marker(xx, yy, spr_pixwht)
+	cover.image_xscale = 320
+	cover.image_yscale = 240
+	cover.image_blend = make_color_rgb(0, 10, 0)
+	caster_set_volume(global.currentsong, 0.1)
+
+	repeat(8)
+	{
+		marker = scr_marker(random_range(xx + 0, xx + 160 - 64), random_range(yy - 240, 0), spr_pixwht)
+		marker.vspeed = 40
+		marker.image_yscale = 40
+		marker.depth = cover.depth - 1
+	}
+
+	repeat(8)
+	{
+		marker = scr_marker(random_range(xx + 160 + 64, xx + 320), random_range(yy - 240, 0), spr_pixwht)
+		marker.vspeed = 40
+		marker.image_yscale = 40
+		marker.depth = cover.depth - 1
+	}
+
+	obj_mainchara_actor.vspeed = 0
+	obj_mainchara_actor.y = 120
+	obj_mainchara_actor.d = 1
+	obj_mainchara_actor.depth = cover.depth - 1
+}
+
+if (lines)
+{
+	with (obj_npc_marker)
+	{
+		if (y > yy + 240) y = yy - 64
+	}
+}
+
+if (spinactor)
+{
+	with (obj_mainchara_actor)
+	{
+		image_angle += 45
+	}
+}
+
 if (conversation == 14 && instance_exists(OBJ_WRITER) == false)
 {
     obj_papyrus_actor_mad.fun = false

@@ -1,5 +1,5 @@
 if (global.debug == true)
 {
-    conversation = 16
+    conversation = 4
     hspeed = 0
 }

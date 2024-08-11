@@ -20,3 +20,5 @@ shakehand = 0
 murder = 0
 if (scr_murderlv() >= 2)
     murder = 1
+spinactor = false
+lines = false
