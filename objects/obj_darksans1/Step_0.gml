@@ -58,11 +58,25 @@ if (conversation == 4 && !instance_exists(obj_battler))
 
 	global.interact = 1
 
+	x -= 20
     global.msg[0] = "* nah^1, just messing&  with ya./"
-    global.msg[1] = "* i remember you're&  pacifists./%%"
+    global.msg[1] = "\\W\\E5* i remember you're&  \\Gpacifists\\W./%%"
     instance_create(0, 0, obj_dialoguer)
 
 	conversation = 6
+}
+
+if (conversation == 6 && instance_exists(OBJ_WRITER) && OBJ_WRITER.stringno == 1)
+{
+	if (sprite_index != spr_sans_r_thumbsup)
+	{
+		sprite_index = spr_sans_r_thumbsup
+		snd_play(snd_whip_hard)
+	}
+
+    rshot = caster_load("music/rimshot.ogg")
+    global.currentsong = caster_load("music/muscle.ogg")
+    global.currentsong2 = caster_load("music/papyrus.ogg")
 }
 
 /*if (conversation == 1 && instance_exists(OBJ_WRITER) == false)
@@ -83,6 +97,7 @@ if (sprite_index == spr_sans_r_darkhand && conversation == 4 && image_index == 2
 }*/
 if (conversation == 6 && instance_exists(OBJ_WRITER) == false)
 {
+	sprite_index = spr_sans_r
 	global.interact = 1
     obj_mainchara.visible = false
     mainact = instance_create(obj_mainchara.x, obj_mainchara.y, obj_mainchara_actor)
@@ -150,7 +165,7 @@ if (conversation == 11)
 {
     if (obj_papyrus_actor_mad.x <= (obj_papyrus_actor_mad.xstart - 140))
     {
-        global.currentsong = global.currentsong2
+        global.currentsong = caster_load("music/papyrus.ogg")
         caster_loop(global.currentsong, 0.5, 1)
         obj_papyrus_actor_mad.speed = 0
         obj_papyrus_actor_mad.image_speed = 0

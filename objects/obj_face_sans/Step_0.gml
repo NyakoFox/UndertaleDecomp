@@ -8,3 +8,5 @@ if (global.faceemotion == 3 && sprite_index != spr_face_sansblink)
     sprite_index = spr_face_sansblink
 if (global.faceemotion == 4 && sprite_index != spr_face_sansnoeyes)
     sprite_index = spr_face_sansnoeyes
+if (global.faceemotion == 5 && sprite_index != spr_face_sanspain)
+    sprite_index = spr_face_sanspain
