@@ -268,10 +268,11 @@ if (conversation == 21.5)
 {
 	lines = true
 	conversation = 22.5
+	alarm[9] = 45
 	cover = scr_marker(xx, yy, spr_pixwht)
 	cover.image_xscale = 320
 	cover.image_yscale = 240
-	cover.image_blend = make_color_rgb(0, 10, 0)
+	cover.image_blend = make_color_rgb(0, 0, 10)
 	caster_set_volume(global.currentsong, 0.1)
 
 	repeat(8)
@@ -294,6 +295,20 @@ if (conversation == 21.5)
 	obj_mainchara_actor.y = 120
 	obj_mainchara_actor.d = 1
 	obj_mainchara_actor.depth = cover.depth - 1
+}
+
+if (conversation == 23.5)
+{
+	caster_stop(global.currentsong)
+
+	conversation = 24.5
+	with (obj_npc_marker)
+	{
+		if (sprite_index == spr_pixwht)
+		{
+			instance_destroy()
+		}
+	}
 }
 
 if (lines)
