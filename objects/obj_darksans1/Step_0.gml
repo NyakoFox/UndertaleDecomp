@@ -309,6 +309,48 @@ if (conversation == 23.5)
 			instance_destroy()
 		}
 	}
+
+	cover = scr_marker(xx, yy, spr_pixwht)
+	cover.image_xscale = 320
+	cover.image_yscale = 240
+	cover.image_blend = make_color_rgb(0, 0, 0)
+
+	obj_mainchara_actor.visible = false
+
+	slide = scr_marker(xx, yy, spr_introimage)
+	slide.depth = cover.depth - 1
+	slide.image_index = 5
+	alarm[9] = 90
+
+	mus = caster_play(mus_story_real, 1, 0.91)
+	audio_sound_set_track_position(mus, 26.66)
+}
+
+if (conversation == 25.5)
+{
+	if (slide.sprite_index == spr_introimage_funny)
+	{
+		slide.image_alpha += 0.05
+
+		if (slide.image_alpha >= 1)
+		{
+			conversation = 26.5
+		}
+
+	}
+	else
+	{
+		slide.image_alpha -= 0.05
+
+		if (slide.image_alpha <= 0)
+		{
+			slide.image_index = 0
+			slide.sprite_index = spr_introimage_funny
+		}
+
+	}
+
+	slide.image_alpha = clamp(slide.image_alpha, 0, 1)
 }
 
 if (lines)

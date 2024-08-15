@@ -3,7 +3,7 @@ act = 1
 dongs = 0
 image_speed = 0
 vol = 1
-caster_play(intromusic, 1, 0.91)
+caster_play(intromusic, 1, 1)
 global.typer = 11
 global.faceemotion = 0
 global.facechoice = 0

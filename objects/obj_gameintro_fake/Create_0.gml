@@ -5,7 +5,7 @@ image_speed = 0
 intromusic = caster_load("music/story.ogg")
 stuck = caster_load("music/story_stuck.ogg")
 vol = 1
-caster_play(intromusic, 1, 0.91)
+caster_play(intromusic, 1, 1)
 global.typer = 112
 global.faceemotion = 0
 global.facechoice = 0
