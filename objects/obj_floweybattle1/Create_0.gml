@@ -8,3 +8,8 @@ conversation = 0
 alarm[0] = 10
 global.faceemotion = 0
 SCR_BORDERSETUP(0, 0, 0, 0, 0)
+
+shake = 0
+shaketimer = 0
+
+timer = 0

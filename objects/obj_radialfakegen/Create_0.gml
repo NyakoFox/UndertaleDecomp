@@ -1,3 +1,3 @@
 direction = 0
 speed = 11
-alarm[0] = 61
+alarm[0] = 31

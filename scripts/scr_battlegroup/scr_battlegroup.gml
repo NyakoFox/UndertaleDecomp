@@ -1873,6 +1873,29 @@ function scr_battlegroup()
 	        SCR_BORDERSETUP()
 	        global.monsterinstance[0] = instance_create(320, 48, obj_asrielfinal)
 	        break
+		case BattleGroup.Flowey:
+	        global.monstertype[0] = MonsterType.Flowey
+	        global.monstertype[1] = MonsterType.NotSet
+	        global.monstertype[2] = MonsterType.NotSet
+	        FL_InBattle = true
+	        if (!caster_is_playing(global.batmusic))
+	        {
+	            global.batmusic = caster_load("music/floweybattle.ogg")
+	            caster_loop(global.batmusic, 0.8, 1)
+	        }
+	        global.msc = 0
+	        global.battlelv = 0
+	        global.actfirst = 0
+	        global.extraintro = 0
+	        global.msg[0] = "* Flowey wants to play."
+	        global.border = 0
+	        SCR_BORDERSETUP()
+	        global.monsterinstance[0] = instance_create(320 - 32 - 8, 244 - 88, obj_floweybattler3)
+
+	        with (obj_battlebg)
+	            instance_destroy()
+
+	        break
 	}
 	
 }

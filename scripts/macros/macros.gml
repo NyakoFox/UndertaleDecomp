@@ -902,7 +902,9 @@ enum MonsterType
 	// 99 - 100 (and 666)
 	AsrielDreemurr = 99,
 	Asriel,
-	Gaster = 666
+	Gaster = 666,
+
+	Flowey = 1000
 }
 
 enum HeartTransitionType
@@ -1105,7 +1107,8 @@ enum BattleGroup
 	MadMewMew,
 	// 255, 256
 	Asriel = 255,
-	AsrielFinal
+	AsrielFinal,
+	Flowey = 300
 }
 
 #endregion

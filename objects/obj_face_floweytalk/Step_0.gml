@@ -16,6 +16,8 @@ if (global.faceemotion == 7 && sprite_index != spr_floweytoriel2)
     sprite_index = spr_floweytoriel2
 if (global.faceemotion == 8 && sprite_index != spr_floweyplain)
     sprite_index = spr_floweyplain
+if (global.faceemotion == 9 && sprite_index != spr_floweyglasses)
+    sprite_index = spr_floweyglasses
 if instance_exists(OBJ_WRITER)
 {
     if (OBJ_WRITER.halt != 0)

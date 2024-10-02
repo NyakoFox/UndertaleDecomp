@@ -1,6 +1,6 @@
 if (global.debug == true)
 {
-    global.battlegroup = (BattleGroup.MettatonSecond + nnn)
+    global.battlegroup = BattleGroup.Flowey
     global.border = 0
     instance_create(0, 0, obj_battleblcon)
     if (global.plot == 998)

@@ -982,4 +982,17 @@ function scr_monstersetup()
 	    global.itemrewardid = 666
 	    global.itemrewardchance = 666
 	}
+	if (global.monstertype[myself] == MonsterType.Flowey)
+	{
+	    global.monstername[myself] = "Flowey"
+	    global.monstermaxhp[myself] = 440
+	    global.monsterhp[myself] = 440
+	    global.monsteratk[myself] = 6
+	    global.monsterdef[myself] = 1
+	    global.xpreward[myself] = 0
+	    global.goldreward[myself] = 0
+	    global.itemrewardid = 0
+	    global.itemrewardchance = 0
+
+	}
 }

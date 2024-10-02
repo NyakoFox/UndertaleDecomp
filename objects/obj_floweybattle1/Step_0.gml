@@ -19,6 +19,126 @@ if instance_exists(OBJ_WRITER)
         }
     }
 }
+
+if (shake != 0)
+{
+	shaketimer--;
+	if (shaketimer <= 0)
+	{
+		shaketimer = 4
+		shake = -(shake - sign(shake))
+	}
+}
+
+x = xstart + (shake * 2)
+
+if timer > 0
+{
+	timer--;
+	if timer <= 0
+	{
+		conversation++
+	}
+}
+
+if (conversation == 999)
+{
+	shake = 4
+	conversation++;
+	snd_play(snd_hurt1)
+	caster_stop(floweysong)
+	with (blcon)
+		instance_destroy()
+
+	sprite_index = spr_floweyhurt
+	timer = 30
+
+	global.damage = 999999
+	instance_create(x, y - 10, obj_dmgwriter_fake)
+}
+
+if (conversation == 1001)
+{
+	snd_play(snd_badexplosion)
+	explosion = scr_marker(x - 30, y - 40, spr_realisticexplosion)
+	explosion.depth = depth - 999
+	explosion.image_xscale = 2
+	explosion.image_yscale = 2
+	explosion.image_speed = 0.5
+	timer = 10
+	conversation++
+}
+
+if (conversation == 1003)
+{
+	sprite_index = spr_nothing
+	conversation++;
+	timer = 20
+}
+
+if (conversation == 1005)
+{
+	instance_destroy(explosion)
+	instance_destroy(obj_dmgwriter_fake)
+	conversation++;
+	timer = 60
+}
+
+if (conversation == 1007)
+{
+	image_index = 0
+	image_speed = 0.5
+	sprite_index = spr_flowey_riseanim
+	conversation++;
+}
+
+if (conversation == 1008)
+{
+	if (image_index >= 8)
+	{
+		image_index = 0
+		image_speed = 0
+		sprite_index = spr_flowey_lookleft
+		conversation++
+		timer = 30
+	}
+}
+
+if (conversation == 1010)
+{
+	conversation++;
+    blcon = instance_create((x + sprite_width), y, obj_blconwdflowey)
+
+    global.msg[0] = "Yeesh^1, who was THAT&handsome clown./"
+	global.msg[1] = "Anyway^1, nice soul./"
+	global.msg[2] = "Dibs./%"
+    blconwriter = instance_create((obj_blconwdflowey.x + 40), (obj_blconwdflowey.y + 10), OBJ_NOMSCWRITER)	
+}
+
+
+if (conversation == 1011)
+{
+	if blconwriter.stringno == 1
+	{
+		sprite_index = spr_floweynice
+	}
+	if blconwriter.stringno == 2
+	{
+		sprite_index = spr_floweymine
+		conversation++
+	}
+}
+
+if conversation == 1012 && (instance_exists(OBJ_WRITER) == false)
+{
+	global.interact = 1
+	global.seriousbattle = 1
+	global.battlegroup = BattleGroup.Flowey
+	FL_AreaKillsPointer = KillsPointer_Invalid
+	room_goto(room_battle)
+	conversation++;
+}
+
 if (instance_exists(obj_winkstar) == false)
 {
     if (instance_exists(OBJ_WRITER) == false)
@@ -51,8 +171,7 @@ if (instance_exists(obj_winkstar) == false)
             sprite_index = spr_floweyevil
             alarm[2] = 70
             conversation = 13
-            obj_fakeheart.movement = 0
-            instance_create(((obj_uborder.x + obj_rborder.x) / 2), (obj_dborder.y + 40), obj_radialfakegen)
+            instance_create(((obj_uborder.x + obj_rborder.x) / 2), (obj_dborder.y + 80), obj_radialfakegen)
         }
         if (conversation == 10)
         {
@@ -99,7 +218,10 @@ if (instance_exists(obj_winkstar) == false)
         if (conversation == 2)
         {
             sprite_index = spr_floweynice
-            obj_friendlypellet.attackyou = 1
+
+            obj_fakepellet.attackyou = 1
+            obj_fakeheart.movement = 1
+
             global.msc = 668
             blconwriter = instance_create((obj_blconwdflowey.x + 40), (obj_blconwdflowey.y + 10), OBJ_WRITER)
             conversation = 3
@@ -111,11 +233,9 @@ if (instance_exists(obj_winkstar) == false)
             blconwriter = instance_create((obj_blconwdflowey.x + 40), (obj_blconwdflowey.y + 10), OBJ_WRITER)
             conversation = 2
             sprite_index = spr_floweyniceside
-            instance_create(((x - 5) + (sprite_width / 2)), (y + (sprite_width / 2)), obj_friendlypellet)
-            instance_create(((x - 5) + (sprite_width / 2)), (y + (sprite_width / 2)), obj_friendlypellet)
-            instance_create(((x - 5) + (sprite_width / 2)), (y + (sprite_width / 2)), obj_friendlypellet)
-            instance_create(((x - 5) + (sprite_width / 2)), (y + (sprite_width / 2)), obj_friendlypellet)
-            instance_create(((x - 5) + (sprite_width / 2)), (y + (sprite_width / 2)), obj_friendlypellet)
+
+            obj_fakeheart.movement = 0
+            instance_create(((obj_uborder.x + obj_rborder.x) / 2), (y + 90), obj_radialfakegen)
         }
         if (conversation == 1)
         {

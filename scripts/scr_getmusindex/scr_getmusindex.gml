@@ -544,6 +544,8 @@ function scr_getmusindex(_filepath)
 	    song_index = mus_temvillage
 	if (_filepath == "music/temshop.ogg")
 	    song_index = mus_temshop
+	if (_filepath == "music/floweybattle.ogg")
+		song_index = mus_floweybattle
 	priority = 80
 	return song_index;
 }
